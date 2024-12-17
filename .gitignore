@@ -1,0 +1,9 @@
+.cpcache
+*/doc/*
+*/.gitignore
+*/resources/
+*/*.md
+*/LICENSE
+.DS_Store
+.clj-kondo
+.lsp
