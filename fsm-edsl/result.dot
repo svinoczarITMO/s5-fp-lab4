@@ -1,0 +1,13 @@
+digraph FSM {
+  Idle [shape=doublecircle];
+  MovingUp [shape=circle];
+  MovingDown [shape=circle];
+  PickingUp [shape=circle];
+  Idle -> MovingUp [label="GoUp"];
+  Idle -> MovingDown [label="GoDown"];
+  MovingUp -> Idle [label="Stop"];
+  MovingDown -> Idle [label="Stop"];
+  MovingDown -> PickingUp [label="PickUp"];
+  PickingUp -> MovingDown [label="Done"];
+  Idle -> PickUp [style=dotted];
+}

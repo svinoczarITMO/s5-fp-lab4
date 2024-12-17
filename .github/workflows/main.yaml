@@ -1,0 +1,29 @@
+name: Clojure CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Set up Clojure
+      uses: DeLaGuardo/setup-clojure@master
+      with:
+        cli: 1.10.3.1040
+      
+    - name: Format 
+      run: cd fsm-edsl/ && clojure -M:format
+    
+    - name: Lint
+      run: cd fsm-edsl/ && clojure -M:lint
+
+    - name: Run tests
+      run: cd fsm-edsl/ && clojure -M:test
